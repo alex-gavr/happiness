@@ -86,6 +86,11 @@ const GlobalStyle = createGlobalStyle`
         
         font-size: ${({ theme }) => theme.fontSize.body};
     }
+    button {
+        font-size: ${({ theme }) => theme.fontSize.body};
+        letter-spacing: 0.06rem;
+        z-index: 2;
+    }
 
     header,
     main {
