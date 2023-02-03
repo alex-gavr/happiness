@@ -4,12 +4,12 @@ import type { AppProps } from 'next/app';
 import { LazyMotion } from 'framer-motion';
 import { Provider } from 'react-redux';
 // import { store } from '@/services/store';
-import { Inter } from '@next/font/google';
+import { Rubik } from '@next/font/google';
 import Head from 'next/head';
 import { StyledMain } from '@/styles/styled';
 import { store } from '@/services/store';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Rubik({ subsets: ['latin'] });
 
 const light: DefaultTheme = {
     colors: {
@@ -22,6 +22,7 @@ const light: DefaultTheme = {
         secondary: '#799cb9',
         black: '#000',
         white: '#fff',
+        componentBackground: 'rgba(0, 0, 0, 0.1)'
     },
     fontSize: {
         heading: 'clamp(2.75rem, 2.6442rem + 0.5128vw, 3.125rem)',
@@ -42,6 +43,7 @@ const dark: DefaultTheme = {
         secondary: '#799cb9',
         black: '#000',
         white: '#fff',
+        componentBackground: 'rgba(255, 255, 255, 0.1)'
     },
     fontSize: {
         body: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
@@ -64,7 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <LazyMotion features={async () => (await import('../utils/domMax')).default}>
                     <ThemeProvider theme={light}>
                         <GlobalStyle />
-                        <StyledMain>
+                        <StyledMain className={inter.className}>
                             <Component {...pageProps} />
                         </StyledMain>
                     </ThemeProvider>
