@@ -63,12 +63,22 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.title};
         z-index: 2;
         line-height: 1.2;
+        letter-spacing: 0.06rem;
+        text-transform: lowercase;
+    }
+    h1:first-letter {
+        text-transform: uppercase;
     }
     h2 {
         text-align: center;
         font-size: ${({ theme }) => theme.fontSize.subHeading};
         color: ${({ theme }) => theme.colors.title};
+        letter-spacing: 0.09rem;
+        text-transform: lowercase;
         z-index: 2;
+    }
+    h2:first-letter {
+        text-transform: uppercase;
     }
     h3 {
         text-align: center;

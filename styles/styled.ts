@@ -1,4 +1,5 @@
 import { m } from 'framer-motion';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 export const StyledMain = styled.main({
@@ -33,22 +34,11 @@ export const FlexRCC = styled(FlexCCC)({
     flexDirection: 'row',
 });
 
-export const StyledButton = styled(m.button)((props) => ({
-    width: '100%',
-    height: '100%',
-    borderRadius: '1rem',
-    padding: '1rem',
-    color: props.theme.colors.paragraph,
-    boxShadow: `rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px`,
-}));
-
 const StyledButtonContainer = styled(FlexRCC)((props) => ({
-    width: '100%',
-    height: '100%',
     borderRadius: '1rem',
     padding: '1rem 1.5rem',
     gap: '0.5rem',
-    boxShadow: `rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px`,
+    cursor: 'pointer',
 }));
 
 export const AgreeButtonContainer = styled(StyledButtonContainer)((props) => ({
@@ -59,24 +49,26 @@ export const DisagreeButtonContainer = styled(StyledButtonContainer)((props) => 
     color: props.theme.colors.paragraph,
     border: `1px solid ${props.theme.colors.red}`,
 }));
+export const DonnoButtonContainer = styled(StyledButtonContainer)((props) => ({
+    color: props.theme.colors.paragraph,
+    border: `1px solid grey`,
+}));
 
-export const AgreeButton = styled(StyledButton)((props) => ({
-    border: `1px solid ${props.theme.colors.green}`,
-}));
-export const DisagreeButton = styled(StyledButton)((props) => ({
-    border: `1px solid ${props.theme.colors.red}`,
-}));
-export const Answer = styled(StyledButton)((props) => ({
-    border: `1px solid ${props.theme.colors.primary}`,
-}));
+export const StyledEmoji = styled.span({
+    fontSize: '2rem',
+    '@media only screen and (max-width: 400px)': {
+        fontSize: '1.5rem',
+    }
+})
 
 export const OptionsContainer = styled(FlexRCC)((props) => ({
     gap: '2rem',
     flexFlow: 'row wrap',
-    width: '95%',
+    width: '100%',
     maxWidth: '600px',
     '@media only screen and (max-width: 500px)': {
         gap: '1rem',
+        width: '98%',
     }
 }));
 export const StyledAnswer = styled.div((props) => ({
@@ -93,3 +85,18 @@ export const StyledAnswer = styled.div((props) => ({
     letterSpacing: '0.05rem',
     gap: '0.5rem',
 }));
+
+export const FinishButton = styled(Link)((props) => ({
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    letterSpacing: '0.09rem',
+    width: 250,
+    height: 'auto',
+    borderRadius: '1rem',
+    padding: '1rem 1.5rem',
+    backgroundColor: props.theme.colors.primary,
+    cursor: 'pointer',
+    boxShadow: `0px 0px 20px 5px rgba(0, 0, 0, 0.2) `,
+}))

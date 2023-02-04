@@ -38,6 +38,7 @@ const answers = [
 ];
 
 const Happy = () => {
+    
     return (
         <StyledSection>
             <h1>What makes you feel the most happy?</h1>
