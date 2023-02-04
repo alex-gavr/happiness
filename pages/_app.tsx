@@ -8,8 +8,8 @@ import Head from 'next/head';
 import { StyledMain } from '@/styles/styled';
 import { store } from '@/services/store';
 import { YMInitializer } from 'react-yandex-metrika';
-import { useEffect } from 'react';
 import { useDarkMode } from '@/utils/useDarkMode';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Rubik({ subsets: ['latin'] });
 
@@ -556,6 +556,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <LazyMotion features={async () => (await import('../utils/domMax')).default}>
                     <ThemeProvider theme={themeMode}>
                         <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
+                        <Analytics />
                         <GlobalStyle />
                         <StyledMain className={inter.className}>
                             <Component {...pageProps} data={data} />
