@@ -1,4 +1,4 @@
-import { AgreeButtonContainer, DisagreeButtonContainer, FlexRCC, StyledEmoji, StyledSection } from '@/styles/styled';
+import { AgreeButtonContainer, DisagreeButtonContainer, OptionsContainer, StyledEmoji, StyledSection } from '@/styles/styled';
 import { useRouter } from 'next/router';
 import React from 'react';
 import ym from 'react-yandex-metrika';
@@ -17,7 +17,7 @@ const Age = () => {
     return (
         <StyledSection>
             <h1>Are you 18 or older?</h1>
-            <FlexRCC style={{ gap: '1rem' }}>
+            <OptionsContainer>
                 <AgreeButtonContainer onClick={() => handleClick(true)}>
                     <p>Yes</p>
                     <StyledEmoji>✅</StyledEmoji>
@@ -26,7 +26,7 @@ const Age = () => {
                     <p>No</p>
                     <StyledEmoji>❌</StyledEmoji>
                 </DisagreeButtonContainer>
-            </FlexRCC>
+            </OptionsContainer>
         </StyledSection>
     );
 };
