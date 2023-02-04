@@ -8,6 +8,8 @@ import Head from 'next/head';
 import { StyledMain } from '@/styles/styled';
 import { store } from '@/services/store';
 import { YMInitializer } from 'react-yandex-metrika';
+import { useEffect } from 'react';
+import { useDarkMode } from '@/utils/useDarkMode';
 
 const inter = Rubik({ subsets: ['latin'] });
 
@@ -535,7 +537,12 @@ const data: TData = [
 ];
 
 export default function App({ Component, pageProps }: AppProps) {
-    const i = data.map(i => i.answers.map(b => b.ym));
+    const { theme, toggleTheme, componentMounted } = useDarkMode();
+    const themeMode = theme === 'light' ? light : dark;
+
+    if (!componentMounted) {
+        return <div style={{ width: '100vw', height: '100vh' }} />;
+    }
     
     return (
         <>
@@ -547,7 +554,7 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
             <Provider store={store}>
                 <LazyMotion features={async () => (await import('../utils/domMax')).default}>
-                    <ThemeProvider theme={dark}>
+                    <ThemeProvider theme={themeMode}>
                         <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
                         <GlobalStyle />
                         <StyledMain className={inter.className}>
