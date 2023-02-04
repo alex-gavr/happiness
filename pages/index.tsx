@@ -1,3 +1,5 @@
+import { setExit } from '@/services/globalStateSlice';
+import { useAppDispatch } from '@/services/hook';
 import { AgreeButtonContainer, DisagreeButtonContainer, DonnoButtonContainer, FlexCCC, OptionsContainer, StyledEmoji, StyledSection } from '@/styles/styled';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
@@ -12,9 +14,12 @@ interface IAnswer {
     emoji: string;
     to: string;
     ym: string;
+    exit: string;
 }
 export default function Home(data: IProps) {
     const router = useRouter();
+    const dispatch = useAppDispatch();
+    
     const [activeQuestion, setActiveQuestion] = useState('are you happy?');
     const [isHappy, setIsHappy] = useState<boolean>(true);
     const filteredArray = data.data.filter((i) => i.question === activeQuestion);
@@ -28,7 +33,7 @@ export default function Home(data: IProps) {
             }
         }
         if (activeQuestion === 'do you think that genetics 🧬 can impact happiness?') {
-            console.log(answer.ym);
+            
             ym('reachGoal',`${answer.ym}`);
             if (isHappy) {
                 setActiveQuestion('what makes you feel the happiest?');
@@ -36,7 +41,9 @@ export default function Home(data: IProps) {
                 setActiveQuestion('what will make you feel happier?');
             }
         } else {
-            console.log(answer.ym);
+            if (answer.exit !== '' ){
+                dispatch(setExit(answer.exit))
+            }
             ym('reachGoal',`${answer.ym}`);
             if (answer.to === '/age') {
                 router.push('/age');

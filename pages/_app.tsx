@@ -64,6 +64,7 @@ export type TData = {
         emoji: string;
         to: string;
         ym: string;
+        exit: string;
     }[];
 }[];
 
@@ -75,13 +76,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '🥰',
                 to: 'do you think that genetics 🧬 can impact happiness?',
-                ym: 'happy'
+                ym: 'happy',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😭',
                 to: 'do you think that genetics 🧬 can impact happiness?',
-                ym: 'unhappy'
+                ym: 'unhappy',
+                exit: ''
             },
         ],
     },
@@ -92,19 +95,22 @@ const data: TData = [
                 answer: 'maybe yes',
                 emoji: '😄',
                 to: 'what makes you feel the happiest?',
-                ym: 'genetics?yes'
+                ym: 'genetics?yes',
+                exit: ''
             },
             {
                 answer: "i don't know",
                 emoji: '🤔',
                 to: 'what makes you feel the happiest?',
-                ym: 'genetics?donno'
+                ym: 'genetics?donno',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😑',
                 to: 'what makes you feel the happiest?',
-                ym: 'genetics?no'
+                ym: 'genetics?no',
+                exit: ''
             },
         ],
     },
@@ -115,25 +121,29 @@ const data: TData = [
                 answer: 'income',
                 emoji: '💰',
                 to: 'will more money make you even happier?',
-                ym: 'happy/income'
+                ym: 'happy/income',
+                exit: ''
             },
             {
                 answer: 'health state',
                 emoji: '💪',
                 to: 'do you stay socially connected?',
-                ym: 'happy/health'
+                ym: 'happy/health',
+                exit: ''
             },
             {
                 answer: 'new technologies',
                 emoji: '📱',
                 to: 'do you like exploring new mobile apps?',
-                ym: 'happy/tech'
+                ym: 'happy/tech',
+                exit: ''
             },
             {
                 answer: 'relationships',
                 emoji: '❤️',
                 to: 'will more money make you even happier?',
-                ym: 'happy/relationships'
+                ym: 'happy/relationships',
+                exit: ''
             },
         ],
     },
@@ -144,25 +154,29 @@ const data: TData = [
                 answer: 'higher income',
                 emoji: '💰',
                 to: 'what would you rather do?',
-                ym: 'unhappy/income'
+                ym: 'unhappy/income',
+                exit: ''
             },
             {
                 answer: 'better health state',
                 emoji: '💪',
                 to: 'do you stay socially connected?',
-                ym: 'unhappy/health'
+                ym: 'unhappy/health',
+                exit: ''
             },
             {
                 answer: 'new technologies',
                 emoji: '📱',
                 to: 'do you like exploring new mobile apps?',
-                ym: 'unhappy/tech'
+                ym: 'unhappy/tech',
+                exit: ''
             },
             {
                 answer: 'meaningful relationships',
                 emoji: '❤️',
                 to: 'do you date someone?',
-                ym: 'unhappy/relationships'
+                ym: 'unhappy/relationships',
+                exit: ''
             },
         ],
     },
@@ -173,13 +187,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '🤑',
                 to: 'what would you rather do?',
-                ym: 'moreMoney?yes'
+                ym: 'moreMoney?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😑',
                 to: 'will more meaningful relationships make you happier?',
-                ym: 'moreMoney?no'
+                ym: 'moreMoney?no',
+                exit: ''
             },
         ],
     },
@@ -190,13 +206,15 @@ const data: TData = [
                 answer: 'invest money',
                 emoji: '📈',
                 to: '/age',
-                ym: 'investMoney'
+                ym: 'investMoney',
+                exit: 'FinanceExit'
             },
             {
                 answer: 'win Money',
                 emoji: '🍀',
                 to: 'do you follow sport events?',
-                ym: 'winMoney'
+                ym: 'winMoney',
+                exit: ''
             },
         ],
     },
@@ -207,13 +225,15 @@ const data: TData = [
                 answer: 'Yes',
                 emoji: '🏅',
                 to: '/age',
-                ym: 'sportEvents?yes'
+                ym: 'sportEvents?yes',
+                exit: 'BettingExit'
             },
             {
                 answer: 'No',
                 emoji: '😑',
                 to: '/age',
-                ym: 'sportEvents?no'
+                ym: 'sportEvents?no',
+                exit: 'GamblingExit'
             },
         ],
     },
@@ -224,13 +244,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '🥰',
                 to: 'do you date someone?',
-                ym: 'moreRelationships?yes'
+                ym: 'moreRelationships?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😕',
                 to: 'do you like exploring new mobile apps?',
-                ym: 'moreRelationships?no'
+                ym: 'moreRelationships?no',
+                exit: ''
             },
         ],
     },
@@ -241,13 +263,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😍',
                 to: 'would you like to meet someone else?',
-                ym: 'dateNow?yes'
+                ym: 'dateNow?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😕',
                 to: 'would you like to date someone?',
-                ym: 'dateNow?no'
+                ym: 'dateNow?no',
+                exit: ''
             },
         ],
     },
@@ -258,13 +282,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😍',
                 to: '/age',
-                ym: 'wannaData?yes'
+                ym: 'wannaData?yes',
+                exit: 'DatingExit'
             },
             {
                 answer: 'no',
                 emoji: '😕',
                 to: 'why not? it will help if you find someone! you will be more joyful. don not be scared, okay?',
-                ym: 'wannaData?no'
+                ym: 'wannaData?no',
+                exit: ''
             },
         ],
     },
@@ -275,7 +301,8 @@ const data: TData = [
                 answer: 'okay',
                 emoji: '😌',
                 to: '/age',
-                ym: 'findSomeone/okay'
+                ym: 'findSomeone/okay',
+                exit: 'DatingExit'
             },
         ],
     },
@@ -286,13 +313,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😏',
                 to: '/age',
-                ym: 'dateSomeoneElse?yes'
+                ym: 'dateSomeoneElse?yes',
+                exit: 'DatingExit'
             },
             {
                 answer: 'no',
                 emoji: '😕',
                 to: 'try something new with your partner, okay?',
-                ym: 'dateSomeoneElse?no'
+                ym: 'dateSomeoneElse?no',
+                exit: ''
             },
         ],
     },
@@ -303,7 +332,8 @@ const data: TData = [
                 answer: 'Alright',
                 emoji: '😌',
                 to: '/age',
-                ym: 'tryNewWithPartner/yes'
+                ym: 'tryNewWithPartner/yes',
+                exit: 'DatingExit'
             },
         ],
     },
@@ -314,13 +344,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '👍',
                 to: 'do you consider yourself a mobile app geek?',
-                ym: 'newApps?yes'
+                ym: 'newApps?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😕',
                 to: 'do you want to laugh?',
-                ym: 'newApps?no'
+                ym: 'newApps?no',
+                exit: ''
             },
         ],
     },
@@ -331,13 +363,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '🤓',
                 to: 'do you care about internet privacy?',
-                ym: 'geek?yes'
+                ym: 'geek?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😑',
                 to: 'do you care about internet privacy?',
-                ym: 'geek?no'
+                ym: 'geek?no',
+                exit: ''
             },
         ],
     },
@@ -348,13 +382,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😎',
                 to: '/age',
-                ym: 'careAboutPrivacy?yes'
+                ym: 'careAboutPrivacy?yes',
+                exit: 'VPNExit'
             },
             {
                 answer: 'no',
                 emoji: '😕',
                 to: '/age',
-                ym: 'careAboutPrivacy?no'
+                ym: 'careAboutPrivacy?no',
+                exit: 'MobileAppsExit'
             },
         ],
     },
@@ -365,13 +401,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😏',
                 to: 'do you find this meme funny?',
-                ym: 'wannaLaugh?yes'
+                ym: 'wannaLaugh?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😔',
                 to: 'you seem sad. is everything alright? tell me what is wrong. it is anonymous',
-                ym: 'wannaLaugh?no'
+                ym: 'wannaLaugh?no',
+                exit: ''
             },
         ],
     },
@@ -382,13 +420,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😂',
                 to: '/age',
-                ym: 'firstMemeFunny?yes'
+                ym: 'firstMemeFunny?yes',
+                exit: 'OtherExit'
             },
             {
                 answer: 'no',
                 emoji: '😬',
                 to: 'what about this one? did you laugh?',
-                ym: 'firstMemeFunny?no'
+                ym: 'firstMemeFunny?no',
+                exit: ''
             },
         ],
     },
@@ -399,13 +439,15 @@ const data: TData = [
                 answer: 'this time yes',
                 emoji: '😂',
                 to: '/age',
-                ym: 'secondMemeFunny?yes'
+                ym: 'secondMemeFunny?yes',
+                exit: 'OtherExit'
             },
             {
                 answer: 'no, stop',
                 emoji: '😑',
                 to: '/age',
-                ym: 'secondMemeFunny?no'
+                ym: 'secondMemeFunny?no',
+                exit: 'OtherExit'
             },
         ],
     },
@@ -416,31 +458,36 @@ const data: TData = [
                 answer: 'Family problems',
                 emoji: '😔',
                 to: '/age',
-                ym: 'problem/family'
+                ym: 'problem/family',
+                exit: 'OtherExit'
             },
             {
                 answer: 'Friends problems',
                 emoji: '😕',
                 to: '/age',
-                ym: 'problem/friends'
+                ym: 'problem/friends',
+                exit: 'OtherExit'
             },
             {
                 answer: 'Health problems',
                 emoji: '😣',
                 to: '/age',
-                ym: 'problem/health'
+                ym: 'problem/health',
+                exit: 'OtherExit'
             },
             {
                 answer: 'Money Problems',
                 emoji: '😬',
                 to: '/age',
-                ym: 'problem/money'
+                ym: 'problem/money',
+                exit: 'OtherExit'
             },
             {
                 answer: 'Other',
                 emoji: '😢',
                 to: '/age',
-                ym: 'problem/other'
+                ym: 'problem/other',
+                exit: 'OtherExit'
             },
         ],
     },
@@ -451,13 +498,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😌',
                 to: 'do you spend a lot of time in your phone?',
-                ym: 'sociallyConnected?yes'
+                ym: 'sociallyConnected?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😢',
                 to: 'do you date someone?',
-                ym: 'sociallyConnected?no'
+                ym: 'sociallyConnected?no',
+                exit: ''
             },
         ],
     },
@@ -468,13 +517,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '😅',
                 to: 'do you like exploring new mobile apps?',
-                ym: 'phoneAddict?yes'
+                ym: 'phoneAddict?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '🙂',
                 to: 'do you laugh enough?',
-                ym: 'phoneAddict?no'
+                ym: 'phoneAddict?no',
+                exit: ''
             },
         ],
     },
@@ -485,13 +536,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '🤣',
                 to: 'do you eat a lot of carbohydrates (sugar, bread, etc.)?',
-                ym: 'laughEnough?yes'
+                ym: 'laughEnough?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '😭',
                 to: 'do you want to laugh?',
-                ym: 'laughEnough?no'
+                ym: 'laughEnough?no',
+                exit: ''
             },
         ],
     },
@@ -502,13 +555,15 @@ const data: TData = [
                 answer: 'yes',
                 emoji: '🥖 👉 ❤️',
                 to: 'stop it and you will have dramatic health improvements! i promise. got it?',
-                ym: 'eatMuchSugar?yes'
+                ym: 'eatMuchSugar?yes',
+                exit: ''
             },
             {
                 answer: 'no',
                 emoji: '🙂',
                 to: 'good job! i am proud of you 🤗',
-                ym: 'eatMuchSugar?no'
+                ym: 'eatMuchSugar?no',
+                exit: ''
             },
         ],
     },
@@ -519,7 +574,8 @@ const data: TData = [
                 answer: 'got It!',
                 emoji: '😅',
                 to: '/age',
-                ym: 'stopSugar/ok'
+                ym: 'stopSugar/ok',
+                exit: 'OtherExit'
             },
         ],
     },
@@ -530,7 +586,8 @@ const data: TData = [
                 answer: 'thank you!',
                 emoji: '😅',
                 to: '/age',
-                ym: 'proudOfYou/ok'
+                ym: 'proudOfYou/ok',
+                exit: 'OtherExit'
             },
         ],
     },

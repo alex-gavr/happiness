@@ -1,3 +1,3 @@
 export interface IGlobalState {
-    isHappy: boolean | null;
+    exit: string;
 }
