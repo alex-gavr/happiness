@@ -7,6 +7,7 @@ import { Rubik } from '@next/font/google';
 import Head from 'next/head';
 import { StyledMain } from '@/styles/styled';
 import { store } from '@/services/store';
+import { YMInitializer } from 'react-yandex-metrika';
 
 const inter = Rubik({ subsets: ['latin'] });
 
@@ -17,7 +18,7 @@ const light: DefaultTheme = {
         paragraph: 'rgba(0, 0, 0, 0.7)',
         green: 'rgb(67, 175, 17)',
         red: 'rgb(204, 0, 0)',
-        primary: '#FFFF9F',
+        primary: '#013057',
         secondary: '#799cb9',
         black: '#000',
         white: '#fff',
@@ -26,8 +27,9 @@ const light: DefaultTheme = {
     fontSize: {
         heading: 'clamp(2rem, 1.6250rem + 2.0000vw, 3.5rem);',
         subHeading: 'clamp(1.5rem, 1.2179rem + 1.3675vw, 2.5rem)',
-        body: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
+        body: 'clamp(0.8rem, 0.6875rem + 0.6000vw, 1.25rem)',
         button: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
+        emoji: 'clamp(1.2rem, 1.0000rem + 1.0667vw, 2rem)'
     },
 };
 
@@ -38,17 +40,18 @@ const dark: DefaultTheme = {
         paragraph: 'rgba(255, 255, 255, 0.7)',
         green: 'rgb(67, 175, 17)',
         red: 'rgb(204, 0, 0)',
-        primary: '#FFFF9F',
+        primary: '#f8d664',
         secondary: '#799cb9',
         black: '#000',
         white: '#fff',
         componentBackground: 'rgba(255, 255, 255, 0.1)',
     },
     fontSize: {
-        body: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
-        button: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
+        heading: 'clamp(2rem, 1.6250rem + 2.0000vw, 3.5rem);',
         subHeading: 'clamp(1.5rem, 1.2179rem + 1.3675vw, 2.5rem)',
-        heading: 'clamp(2.75rem, 2.6442rem + 0.5128vw, 3.125rem)',
+        body: 'clamp(1rem, 0.9500rem + 0.2667vw, 1.2rem)',
+        button: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
+        emoji: 'clamp(1.2rem, 1.0000rem + 1.0667vw, 2rem)'
     },
 };
 
@@ -532,8 +535,7 @@ const data: TData = [
 ];
 
 export default function App({ Component, pageProps }: AppProps) {
-    // const i = data.map(i => i.answers.map(b => b.ym));
-    // console.log(i)
+    const i = data.map(i => i.answers.map(b => b.ym));
     
     return (
         <>
@@ -545,7 +547,8 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
             <Provider store={store}>
                 <LazyMotion features={async () => (await import('../utils/domMax')).default}>
-                    <ThemeProvider theme={light}>
+                    <ThemeProvider theme={dark}>
+                        <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
                         <GlobalStyle />
                         <StyledMain className={inter.className}>
                             <Component {...pageProps} data={data} />

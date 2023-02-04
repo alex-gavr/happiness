@@ -1,15 +1,16 @@
 import { AgreeButtonContainer, DisagreeButtonContainer, FlexRCC, StyledEmoji, StyledSection } from '@/styles/styled';
 import { useRouter } from 'next/router';
 import React from 'react';
+import ym from 'react-yandex-metrika';
 
 const Age = () => {
     const router = useRouter();
     const handleClick = (i: boolean) => {
         if (i) {
-            // ym('reachGoal','adult')
+            ym('reachGoal','adult')
             router.push('/thank-you');
         } else if (i === false) {
-            // ym('reachGoal','child')
+            ym('reachGoal','child')
             router.push('https://google.com');
         }
     };

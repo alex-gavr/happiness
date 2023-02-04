@@ -39,27 +39,26 @@ const StyledButtonContainer = styled(FlexRCC)((props) => ({
     padding: '1rem 1.5rem',
     gap: '0.5rem',
     cursor: 'pointer',
+    backgroundColor: props.theme.colors.componentBackground,
+    '& > p': {
+        color: props.theme.colors.title,
+        letterSpacing: '0.09rem'
+    }
 }));
 
 export const AgreeButtonContainer = styled(StyledButtonContainer)((props) => ({
-    color: props.theme.colors.paragraph,
     border: `1px solid ${props.theme.colors.green}`,
 }));
 export const DisagreeButtonContainer = styled(StyledButtonContainer)((props) => ({
-    color: props.theme.colors.paragraph,
     border: `1px solid ${props.theme.colors.red}`,
 }));
 export const DonnoButtonContainer = styled(StyledButtonContainer)((props) => ({
-    color: props.theme.colors.paragraph,
     border: `1px solid grey`,
 }));
 
-export const StyledEmoji = styled.span({
-    fontSize: '2rem',
-    '@media only screen and (max-width: 400px)': {
-        fontSize: '1.5rem',
-    }
-})
+export const StyledEmoji = styled.span((props) => ({
+    fontSize: props.theme.fontSize.emoji,
+}));
 
 export const OptionsContainer = styled(FlexRCC)((props) => ({
     gap: '2rem',
@@ -69,7 +68,7 @@ export const OptionsContainer = styled(FlexRCC)((props) => ({
     '@media only screen and (max-width: 500px)': {
         gap: '1rem',
         width: '98%',
-    }
+    },
 }));
 export const StyledAnswer = styled.div((props) => ({
     display: 'flex',
@@ -96,7 +95,9 @@ export const FinishButton = styled(Link)((props) => ({
     height: 'auto',
     borderRadius: '1rem',
     padding: '1rem 1.5rem',
-    backgroundColor: props.theme.colors.primary,
+    border: `solid 1px ${props.theme.colors.green}`,
+    backgroundColor: props.theme.colors.componentBackground,
+    color: props.theme.colors.primary,
     cursor: 'pointer',
     boxShadow: `0px 0px 20px 5px rgba(0, 0, 0, 0.2) `,
-}))
+}));

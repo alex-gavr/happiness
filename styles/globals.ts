@@ -60,9 +60,9 @@ const GlobalStyle = createGlobalStyle`
     h1 {
         text-align: center;
         font-size: ${({ theme }) => theme.fontSize.heading};
-        color: ${({ theme }) => theme.colors.title};
+        color: ${({ theme }) => theme.colors.primary};
         z-index: 2;
-        line-height: 1.2;
+        line-height: 1.4;
         letter-spacing: 0.06rem;
         text-transform: lowercase;
     }

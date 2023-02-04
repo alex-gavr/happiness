@@ -1,9 +1,10 @@
 import { FinishButton, StyledSection } from '@/styles/styled';
 import React from 'react';
+import ym from 'react-yandex-metrika';
 
 const ThankYou = () => {
     const handleMainExit = () => {
-        // ym('reachGoal','mainExit');
+        ym('reachGoal','mainExit');
     }
     return (
         <StyledSection>

@@ -31,11 +31,11 @@ export default class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
-                    {/* <noscript>
+                    <noscript>
                         <div>
-                            <img src='https://mc.yandex.ru/watch/92124733' style={{ position: 'absolute', left: '-9999px' }} width={2} height={2} alt='' />
+                            <img src='https://mc.yandex.ru/watch/92326829' style={{ position: 'absolute', left: '-9999px' }} width={2} height={2} alt='' />
                         </div>
-                    </noscript> */}
+                    </noscript>
                 </body>
             </Html>
         );
