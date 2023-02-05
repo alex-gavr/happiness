@@ -605,6 +605,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <title>Happiness</title>
+                <meta name="monetag" content="9b3282e0c05773a5e761474d67e1b1f6" />
                 <meta name="monetag" content="d82419bef87a5d899d417b44326cf61a" />
                 <meta name='description' content='Take survey' />
                 <meta name='viewport' content='width=device-width, initial-scale=1' />

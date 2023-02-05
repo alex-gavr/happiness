@@ -13,7 +13,7 @@ const ThankYou = () => {
         <StyledSection>
             <h1>Thank you for participation!</h1>
             <p>You might benefit from this 👇</p>
-            <FinishButton href={'https://google.com'} onClick={handleMainExit}>
+            <FinishButton href={'https://augailou.com/4/5698444'} onClick={handleMainExit}>
                 Check it out
             </FinishButton>
         </StyledSection>

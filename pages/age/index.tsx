@@ -11,7 +11,7 @@ const Age = () => {
             router.push('/thank-you');
         } else if (i === false) {
             ym('reachGoal','child')
-            router.push('https://google.com');
+            router.push('https://whairtoa.com/4/5698334');
         }
     };
     return (
