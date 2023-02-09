@@ -1,3 +1,8 @@
 export interface IGlobalState {
-    exit: string;
+    questionNumber: number;
+    exit: {
+        betting: number;
+        utilities: number;
+        other: number;
+    };
 }

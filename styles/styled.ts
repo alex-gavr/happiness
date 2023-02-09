@@ -24,7 +24,7 @@ export const StyledSection = styled.section((props) => ({
     gap: '2rem',
     flex: '1 1 0',
 }));
-export const FlexCCC = styled.div({
+export const FlexCCC = styled(m.div)({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -33,6 +33,11 @@ export const FlexCCC = styled.div({
 export const FlexRCC = styled(FlexCCC)({
     flexDirection: 'row',
 });
+
+export const StyledLogoP = styled.p({
+    letterSpacing: '0.05em',
+    color: '#ff6',
+})
 
 const StyledButtonContainer = styled(FlexRCC)((props) => ({
     borderRadius: '1rem',
@@ -53,6 +58,10 @@ export const DisagreeButtonContainer = styled(StyledButtonContainer)((props) => 
     border: `1px solid ${props.theme.colors.red}`,
 }));
 export const DonnoButtonContainer = styled(StyledButtonContainer)((props) => ({
+    border: `1px solid grey`,
+}));
+export const ImageButtonContainer = styled(StyledButtonContainer)((props) => ({
+    flexFlow: 'column nowrap',
     border: `1px solid grey`,
 }));
 

@@ -1,16 +1,28 @@
-import { setExit } from '@/services/globalStateSlice';
-import { useAppDispatch } from '@/services/hook';
-import { AgreeButtonContainer, DisagreeButtonContainer, DonnoButtonContainer, FlexCCC, OptionsContainer, StyledEmoji, StyledSection } from '@/styles/styled';
+import { TData } from '@/components/Data';
+import PopUp from '@/components/PopUp';
+import { incrementExit, incrementQuestionNumber } from '@/services/globalStateSlice';
+import { useAppDispatch, useAppSelector } from '@/services/hook';
+import {
+    AgreeButtonContainer,
+    DisagreeButtonContainer,
+    DonnoButtonContainer,
+    FlexCCC,
+    ImageButtonContainer,
+    OptionsContainer,
+    StyledEmoji,
+    StyledSection,
+} from '@/styles/styled';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import ym from 'react-yandex-metrika';
-import { TData } from './_app';
 
 interface IProps {
     data: TData;
 }
 interface IAnswer {
     answer: string;
+    img: string;
     emoji: string;
     to: string;
     ym: string;
@@ -19,59 +31,41 @@ interface IAnswer {
 export default function Home(data: IProps) {
     const router = useRouter();
     const dispatch = useAppDispatch();
-    
+    const { questionNumber } = useAppSelector((state) => state.globalState);
+
     const [activeQuestion, setActiveQuestion] = useState('are you happy?');
-    const [isHappy, setIsHappy] = useState<boolean>(true);
+    // const [isHappy, setIsHappy] = useState<boolean>(true);
     const filteredArray = data.data.filter((i) => i.question === activeQuestion);
 
     const handleClick = (answer: IAnswer) => {
-        if (activeQuestion === 'are you happy?') {
-            if (answer.answer === 'yes') {
-                setIsHappy(true);
-            } else if (answer.answer === 'no') {
-                setIsHappy(false);
-            }
+        dispatch(incrementQuestionNumber());
+        if (answer.exit !== '') {
+            dispatch(incrementExit(answer.exit));
         }
-        if (activeQuestion === 'do you think that genetics 🧬 can impact happiness?') {
-            
-            ym('reachGoal',`${answer.ym}`);
-            if (isHappy) {
-                setActiveQuestion('what makes you feel the happiest?');
-            } else {
-                setActiveQuestion('what will make you feel happier?');
-            }
+        // ym('reachGoal', `${answer.ym}`);
+        if (answer.to === '/age') {
+            router.push('/age');
         } else {
-            if (answer.exit !== '' ){
-                dispatch(setExit(answer.exit))
-            }
-            ym('reachGoal',`${answer.ym}`);
-            if (answer.to === '/age') {
-                router.push('/age');
-            } else {
-                setActiveQuestion(answer.to);
-            }
+            setActiveQuestion(answer.to);
         }
     };
+
+    const handleClickButton = () => {
+        window.open('https://youtube.com', '_blank', 'noreferrer');
+    };
+
     return (
         <StyledSection>
+            {questionNumber === 0 && <PopUp />}
             {filteredArray.map((object, index) => {
                 return (
                     <Fragment key={index}>
                         <h1>{object.question}</h1>
-                        {object.question === 'do you find this meme funny?' && (
-                            <FlexCCC>
-                                <img src='/lol1.webp' width={300} alt='' />
-                            </FlexCCC>
-                        )}
-                        {object.question === 'what about this one? did you laugh?' && (
-                            <FlexCCC>
-                                <img src='/lol2.webp' width={300} alt='' />
-                            </FlexCCC>
-                        )}
                         <OptionsContainer>
                             {object.answers.map((answer, index) => {
-                                const agree = answer.answer === 'yes' || answer.answer === 'maybe yes' ? true : false;
+                                const agree = answer.answer === 'yes' ? true : false;
                                 const disagree = answer.answer === 'no' ? true : false;
+                                const hasImg = answer.img !== '' ? true : false;
                                 return (
                                     <Fragment key={index}>
                                         {agree ? (
@@ -84,6 +78,13 @@ export default function Home(data: IProps) {
                                                 <p style={{ textTransform: 'capitalize' }}>{answer.answer}</p>
                                                 <StyledEmoji>{answer.emoji}</StyledEmoji>
                                             </DisagreeButtonContainer>
+                                        ) : hasImg ? (
+                                            <FlexCCC style={{ gap: '0.3rem' }}>
+                                                <ImageButtonContainer onClick={() => handleClick(answer)}>
+                                                    <Image src={answer.img} alt='' width={50} height={50} />
+                                                </ImageButtonContainer>
+                                                <p style={answer.answer === 'vpn' ? { textTransform: 'uppercase' } : { textTransform: 'capitalize' }}>{answer.answer}</p>
+                                            </FlexCCC>
                                         ) : (
                                             <DonnoButtonContainer onClick={() => handleClick(answer)}>
                                                 <p style={{ textTransform: 'capitalize' }}>{answer.answer}</p>
