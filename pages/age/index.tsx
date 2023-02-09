@@ -8,7 +8,9 @@ import ym from 'react-yandex-metrika';
 const Age = () => {
     const router = useRouter();
     const dispatch = useAppDispatch();
+
     const handleClick = (i: boolean) => {
+        // TODO: add pops and main exits
         dispatch(incrementQuestionNumber());
         if (i) {
             ym('reachGoal', 'adult');

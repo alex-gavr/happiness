@@ -10,6 +10,7 @@ export type TData = {
     }[];
 }[];
 
+// TODO: Fix ym
 export const data: TData = [
     {
         question: 'are you happy?',

@@ -7,6 +7,7 @@ const ThankYou = () => {
     const { exit } = useAppSelector((state) => state.globalState);
 
     const handleMainExit = () => {
+        // TODO: add pops and main exits
         ym('reachGoal', `${exit}`);
     };
     return (
