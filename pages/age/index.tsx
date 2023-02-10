@@ -9,15 +9,18 @@ const Age = () => {
     const router = useRouter();
     const dispatch = useAppDispatch();
 
+    const teenExitURL = 'https://waufooke.com/4/5708376';
+    const teenPopsURL = 'https://thefacux.com/4/5708375';
+
     const handleClick = (i: boolean) => {
-        // TODO: add pops and main exits
         dispatch(incrementQuestionNumber());
         if (i) {
             ym('reachGoal', 'adult');
             router.push('/thank-you');
         } else if (i === false) {
             ym('reachGoal', 'child');
-            router.push('https://whairtoa.com/4/5698334');
+            // Teen Exit
+            window.open(teenExitURL, '_blank');
         }
     };
     return (
@@ -28,7 +31,7 @@ const Age = () => {
                     <p>Yes</p>
                     <StyledEmoji>✅</StyledEmoji>
                 </AgreeButtonContainer>
-                <DisagreeButtonContainer onClick={() => handleClick(false)}>
+                <DisagreeButtonContainer style={{width: 'auto', height: 'auto'}} as='a' href={teenPopsURL} onClick={() => handleClick(false)}>
                     <p>No</p>
                     <StyledEmoji>❌</StyledEmoji>
                 </DisagreeButtonContainer>

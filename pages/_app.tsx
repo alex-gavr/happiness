@@ -7,7 +7,7 @@ import { Rubik } from '@next/font/google';
 import Head from 'next/head';
 import { StyledMain } from '@/styles/styled';
 import { store } from '@/services/store';
-import { YMInitializer } from 'react-yandex-metrika';
+import ym, { YMInitializer } from 'react-yandex-metrika';
 import { useDarkMode } from '@/utils/useDarkMode';
 import { Analytics } from '@vercel/analytics/react';
 import Logo from '@/components/Logo';
@@ -66,6 +66,7 @@ const dark: DefaultTheme = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
+    // const ym =  data.map(i => i.answers.map(b => b.ym))
     const router = useRouter();
     const [count, setCount] = useState(20);
     const { theme, toggleTheme, componentMounted } = useDarkMode();
@@ -86,7 +87,11 @@ export default function App({ Component, pageProps }: AppProps) {
             setCount((currentCount) => currentCount - 1);
         }, 1000);
         // when count is 0, Auto-Exit happens
-        count === 0 && router.push('https://vercel.com');
+        if (count === 0) {
+            ym('reachGoal', 'autoExit');
+            router.push('https://intorterraon.com/4/5708884');
+        }
+        
         // clean up the interval
         return () => clearInterval(interval);
     }, [count, router]);
@@ -97,10 +102,10 @@ export default function App({ Component, pageProps }: AppProps) {
     useEffect(() => {
         router.beforePopState(({ as }) => {
             // Reverse exit
-            router.push('https://www.vercel.com');
+            ym('reachGoal', 'reverseExit');
+            router.push('https://woafoame.net/4/5708374');
             return false;
         });
-
         return () => {
             router.beforePopState(() => true);
         };
@@ -114,8 +119,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <title>Happiness</title>
-                <meta name='monetag' content='d82419bef87a5d899d417b44326cf61a' />
-                <meta name='pushsdk' content='4b56e4173da530d3f2cdd7709ea8e218' />
                 <meta name='description' content='Take survey' />
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/favicon.ico' />

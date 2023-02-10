@@ -109,6 +109,18 @@ const GlobalStyle = createGlobalStyle`
     header{
         max-width: 1500px;
     }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
 `;
 
 export default GlobalStyle;

@@ -42,16 +42,12 @@ export default function Home(data: IProps) {
         if (answer.exit !== '') {
             dispatch(incrementExit(answer.exit));
         }
-        // ym('reachGoal', `${answer.ym}`);
+        ym('reachGoal', `${answer.ym}`);
         if (answer.to === '/age') {
             router.push('/age');
         } else {
             setActiveQuestion(answer.to);
         }
-    };
-
-    const handleClickButton = () => {
-        window.open('https://youtube.com', '_blank', 'noreferrer');
     };
 
     return (
