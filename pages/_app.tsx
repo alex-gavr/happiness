@@ -17,6 +17,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useEventListener } from 'usehooks-ts';
 
+
+
 const inter = Rubik({ subsets: ['latin'] });
 
 const light: DefaultTheme = {

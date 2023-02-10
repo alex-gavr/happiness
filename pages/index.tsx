@@ -1,5 +1,4 @@
 import { TData } from '@/components/Data';
-import PopUp from '@/components/PopUp';
 import { incrementExit, incrementQuestionNumber } from '@/services/globalStateSlice';
 import { useAppDispatch, useAppSelector } from '@/services/hook';
 import {
@@ -52,7 +51,6 @@ export default function Home(data: IProps) {
 
     return (
         <StyledSection>
-            {questionNumber === 0 && <PopUp />}
             {filteredArray.map((object, index) => {
                 return (
                     <Fragment key={index}>
@@ -94,6 +92,7 @@ export default function Home(data: IProps) {
                     </Fragment>
                 );
             })}
+            {questionNumber === 0 && <p style={{textAlign: 'center', marginTop: '1rem', width: '90%'}}>Get Free Recommendation and Offer at the End</p>}
         </StyledSection>
     );
 }
