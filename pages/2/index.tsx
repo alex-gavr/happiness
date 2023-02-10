@@ -1,7 +1,7 @@
 import Quiz from '@/components/Quiz';
 import { StyledSection } from '@/styles/styled'
 
-export default function Home() {
+export default function Question2() {
     
     return (
         <StyledSection>
