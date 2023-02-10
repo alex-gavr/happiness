@@ -68,13 +68,13 @@ const dark: DefaultTheme = {
 export default function App({ Component, pageProps }: AppProps) {
     // const ym =  data.map(i => i.answers.map(b => b.ym))
     const router = useRouter();
-    const [count, setCount] = useState(20);
+    const [count, setCount] = useState(30);
     const { theme, toggleTheme, componentMounted } = useDarkMode();
     const themeMode = theme === 'light' ? light : dark;
 
     // AUTO-EXIT
     const updateCount = () => {
-        setCount(20);
+        setCount(30);
     };
 
     useEventListener('mousemove', updateCount);
