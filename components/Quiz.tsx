@@ -1,13 +1,12 @@
 import { incrementExit, incrementQuestionNumber } from '@/services/globalStateSlice';
 import { useAppDispatch, useAppSelector } from '@/services/hook';
-import { AgreeButtonContainer, DisagreeButtonContainer, DonnoButtonContainer, FlexCCC, ImageButtonContainer, OptionsContainer, StyledEmoji } from '@/styles/styled';
+import { AgreeButtonContainer, DisagreeButtonContainer, DonnoButtonContainer, FlexCCC, ImageButtonContainer, OptionsContainer, StyledEmoji, StyledHeading, StyledStrong } from '@/styles/styled';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import ym from 'react-yandex-metrika';
-import { TData } from './Data';
-import { data } from './Data';
-
+import { dataPoker } from './DataPoker';
+import PopUp from './PopUp';
 
 interface IAnswer {
     answer: string;
@@ -26,23 +25,39 @@ const Quiz = () => {
     const slice = pathname === '/' ? '1' : pathname.slice(1);
     const path = parseInt(slice);
 
-    
-    const filteredArray = data.filter((i) => i.id === path);
+    const filteredArray = dataPoker.filter((i) => i.id === path);
 
     const handleClick = (answer: IAnswer) => {
         dispatch(incrementQuestionNumber());
-        if (answer.exit !== '') {
-            dispatch(incrementExit(answer.exit));
-        }
         ym('reachGoal', `${answer.ym}`);
+        if (answer.exit === 'other') {
+            // Other Main Exit
+            window.open('https://waufooke.com/4/5708348', '_blank');
+            // Other Pops
+            router.push('https://mordoops.com/4/5708366');
+        }
         router.push(answer.to);
     };
     return (
         <>
+            {path === 1 ? <PopUp /> : null}
             {filteredArray.map((object, index) => {
+                const h1 = object.question === 'Do you want to make extra money playing poker?' && (
+                    <>
+                        <StyledHeading>
+                            Do you want to make <StyledStrong> extra money </StyledStrong> playing poker?
+                        </StyledHeading>
+                    </>
+                );
                 return (
                     <Fragment key={index}>
-                        <h1>{object.question}</h1>
+                        {path === 1 ? h1 : <h1>{object.question}</h1>}
+                        {path === 4 && (
+                            <div>
+                                <p style={{ textAlign: 'center', marginBottom: '0.5rem' }}>this is table cards</p>
+                                <Image src='/table.svg' alt='' width={400} height={100} />
+                            </div>
+                        )}
                         <OptionsContainer>
                             {object.answers.map((answer, index) => {
                                 const agree = answer.answer === 'yes' ? true : false;
@@ -63,9 +78,9 @@ const Quiz = () => {
                                         ) : hasImg ? (
                                             <FlexCCC style={{ gap: '0.3rem' }}>
                                                 <ImageButtonContainer onClick={() => handleClick(answer)}>
-                                                    <Image src={answer.img} alt='' width={50} height={50} />
+                                                    <Image src={answer.img} alt='' width={80} height={80} />
                                                 </ImageButtonContainer>
-                                                <p style={answer.answer === 'vpn' ? { textTransform: 'uppercase' } : { textTransform: 'capitalize' }}>{answer.answer}</p>
+                                                <p style={{ textTransform: 'capitalize' }}>{answer.answer}</p>
                                             </FlexCCC>
                                         ) : (
                                             <DonnoButtonContainer onClick={() => handleClick(answer)}>

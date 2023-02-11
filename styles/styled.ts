@@ -33,6 +33,12 @@ export const FlexCCC = styled(m.div)({
 export const FlexRCC = styled(FlexCCC)({
     flexDirection: 'row',
 });
+export const StyledHeading = styled(m.h1)(props => ({
+    color: props.theme.colors.title
+}));
+export const StyledStrong = styled.strong(props => ({
+    color: props.theme.colors.primary
+}));
 
 export const StyledLogoP = styled.p({
     letterSpacing: '0.05em',
@@ -61,6 +67,7 @@ export const DonnoButtonContainer = styled(StyledButtonContainer)((props) => ({
     border: `1px solid grey`,
 }));
 export const ImageButtonContainer = styled(StyledButtonContainer)((props) => ({
+    padding: '0.5rem',
     flexFlow: 'column nowrap',
     border: `1px solid grey`,
 }));

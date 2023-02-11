@@ -10,13 +10,11 @@ import { store } from '@/services/store';
 import ym, { YMInitializer } from 'react-yandex-metrika';
 import { useDarkMode } from '@/utils/useDarkMode';
 import { Analytics } from '@vercel/analytics/react';
-import Logo from '@/components/Logo';
 import { data } from '@/components/Data';
 import ProgressBar from '@/components/ProgressBar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useEventListener } from 'usehooks-ts';
-
 
 
 const inter = Rubik({ subsets: ['latin'] });
@@ -28,12 +26,12 @@ const light: DefaultTheme = {
         paragraph: 'rgba(0, 0, 0, 0.7)',
         green: 'rgb(67, 175, 17)',
         red: 'rgb(204, 0, 0)',
-        primary: '#013057',
+        primary: 'rgba(0, 75, 255, 0.7)',
         secondary: '#799cb9',
         black: '#000',
         white: '#fff',
         componentBackground: 'rgba(0, 0, 0, 0.1)',
-        accentBG: 'rgba(0, 75, 255, 0.7)',
+        accentBG: 'rgba(0, 0, 0, 0.1)',
     },
     fontSize: {
         heading: 'clamp(2rem, 1.6250rem + 2.0000vw, 3.5rem);',
@@ -68,15 +66,16 @@ const dark: DefaultTheme = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-    // const ym =  data.map(i => i.answers.map(b => b.ym))
+    // const ym1 =  dataPoker.map(i => i.answers.map(b => b.ym))
+    // console.table(ym1);
     const router = useRouter();
-    const [count, setCount] = useState(30);
+    const [count, setCount] = useState(50);
     const { theme, toggleTheme, componentMounted } = useDarkMode();
     const themeMode = theme === 'light' ? light : dark;
 
     // AUTO-EXIT
     const updateCount = () => {
-        setCount(30);
+        setCount(50);
     };
 
     useEventListener('mousemove', updateCount);
@@ -134,7 +133,6 @@ export default function App({ Component, pageProps }: AppProps) {
                             <GlobalStyle />
                             <StyledMain className={inter.className}>
                                 <ProgressBar />
-                                <Logo />
                                 <Component {...pageProps} data={data} />
                             </StyledMain>
                         </ThemeProvider>
