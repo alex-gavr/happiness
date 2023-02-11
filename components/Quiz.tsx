@@ -32,6 +32,7 @@ const Quiz = () => {
         ym('reachGoal', `${answer.ym}`);
         if (answer.exit === 'other') {
             // Other Main Exit
+            ym('reachGoal', 'OtherExit');
             window.open('https://waufooke.com/4/5708348', '_blank');
             // Other Pops
             router.push('https://mordoops.com/4/5708366');
