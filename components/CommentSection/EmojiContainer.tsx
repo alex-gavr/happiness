@@ -3,14 +3,14 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { IEmoji } from './CommentsData';
 
-const StyledContainer = styled(FlexRCC)<{ clicked: boolean; emoji: string }>((props) => ({
+const StyledContainer = styled(FlexRCC)<{ $clicked: boolean; $emoji: string }>((props) => ({
     gap: '0.5rem',
     backgroundColor:
-        props.clicked && props.emoji === '👍'
+        props.$clicked && props.$emoji === '👍'
             ? props.theme.colors.green
-            : props.clicked && props.emoji === '👎'
+            : props.$clicked && props.$emoji === '👎'
             ? props.theme.colors.red
-            : props.clicked && props.emoji === '😁'
+            : props.$clicked && props.$emoji === '😁'
             ? props.theme.colors.secondary
             : '',
     border: `1px solid ${props.theme.colors.componentBackground}`,
@@ -27,7 +27,7 @@ interface IProps {
 }
 
 const EmojiContainer = ({ emoji }: IProps) => {
-    const [clicked, setClicked] = useState(false);
+    const [clicked, setClicked] = useState<boolean>(false);
     const [number, setNumber] = useState(emoji.count);
 
     const handleClick = () => {
@@ -38,7 +38,7 @@ const EmojiContainer = ({ emoji }: IProps) => {
     };
 
     return (
-        <StyledContainer onClick={handleClick} clicked={clicked} emoji={emoji.emoji}>
+        <StyledContainer onClick={handleClick} $clicked={clicked} $emoji={emoji.emoji}>
             <StyledSpan clicked={clicked}>{emoji.emoji}</StyledSpan>
             <StyledSpan clicked={clicked}>{number}</StyledSpan>
         </StyledContainer>

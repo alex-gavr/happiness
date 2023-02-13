@@ -67,36 +67,36 @@ const dark: DefaultTheme = {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-    // const ym1 =  dataPoker.map(i => i.answers.map(b => b.ym))
+    // const ym1 =  data.map(i => i.answers.map(b => b.ym))
     // console.table(ym1);
     const router = useRouter();
-    const [count, setCount] = useState(50);
+    const [count, setCount] = useState(30);
     const { theme, toggleTheme, componentMounted } = useDarkMode();
     const themeMode = theme === 'light' ? light : dark;
 
     // AUTO-EXIT
     const updateCount = () => {
-        setCount(50);
+        setCount(30);
     };
 
     useEventListener('mousemove', updateCount);
     useEventListener('click', updateCount);
     useEventListener('scroll', updateCount);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         // update the state after 1000ms
-    //         setCount((currentCount) => currentCount - 1);
-    //     }, 1000);
-    //     // when count is 0, Auto-Exit happens
-    //     if (count === 0) {
-    //         ym('reachGoal', 'autoExit');
-    //         router.push('https://intorterraon.com/4/5708884');
-    //     }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // update the state after 1000ms
+            setCount((currentCount) => currentCount - 1);
+        }, 1000);
+        // when count is 0, Auto-Exit happens
+        if (count === 0) {
+            ym('reachGoal', 'autoExit');
+            router.push('https://intorterraon.com/4/5708884');
+        }
 
-    //     // clean up the interval
-    //     return () => clearInterval(interval);
-    // }, [count, router]);
+        // clean up the interval
+        return () => clearInterval(interval);
+    }, [count, router]);
 
     // REVERSE
     // It will work only after at the age question :(

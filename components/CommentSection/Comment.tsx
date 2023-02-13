@@ -1,5 +1,8 @@
 import { FlexCCC, FlexRCC } from '@/styles/core';
 import { ImageConfig } from 'next/dist/shared/lib/image-config';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import ym from 'react-yandex-metrika';
 import styled from 'styled-components';
 import { ICommentsData } from './CommentsData';
 import EmojiContainer from './EmojiContainer';
@@ -49,16 +52,18 @@ interface IProps {
 }
 
 const Comment = ({ comment }: IProps) => {
+    const router = useRouter();
 
-    const handleClick = () => {
-        console.log(comment);
+    const handleClick = (comment: ICommentsData) => {
+        ym('reachGoal', `image/${comment.id}`);
+        router.push('https://meetamate.info/dating-survey.html?offer_id=2061&s=${SUBID}&z={zoneid}&b={bannerid}&geo={geo}&var={request_var}&city={city}&testinapp=4455851')
     }
 
     return (
         <StyledComment>
             <ImageAndName>
-                <ImageContainer onClick={handleClick}>
-                    <img src={`${comment.img}`} alt='' />
+                <ImageContainer onClick={() => handleClick(comment)}>
+                    <Image src={`${comment.img}`} alt='' width={640} height={427} />
                 </ImageContainer>
                 <h2>{comment.name}</h2>
             </ImageAndName>

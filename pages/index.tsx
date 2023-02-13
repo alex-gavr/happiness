@@ -1,6 +1,3 @@
-import CommentSection from '@/components/CommentSection/CommentSection';
-import CountDown from '@/components/CountDown';
-import Quiz from '@/components/Quiz';
 import { StartButton } from '@/styles/buttons';
 import { FlexCCC, StyledSection } from '@/styles/core';
 import { StyledP } from '@/styles/styled';

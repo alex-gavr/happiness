@@ -19,17 +19,17 @@ const CountDown = () => {
     const minutes = Math.floor(time / 60);
     const seconds = time - minutes * 60;
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setTime((currentCount) => currentCount - 1);
-    //     }, 1000);
-    //     if (time < 0) {
-    //         ym('reachGoal', 'autoExit');
-    //         router.push('https://intorterraon.com/4/5708884');
-    //     }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime((currentCount) => currentCount - 1);
+        }, 1000);
+        if (time < 0) {
+            ym('reachGoal', 'countDownExit');
+            router.push('https://intorterraon.com/4/5708884');
+        }
 
-    //     return () => clearInterval(interval);
-    // }, [time]);
+        return () => clearInterval(interval);
+    }, [time]);
 
     return (
         <FlexCCC gap='0.5rem' style={{ position: 'fixed', top: '1%' }}>
