@@ -127,7 +127,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <Provider store={store}>
                 <LazyMotion features={async () => (await import('../utils/domMax')).default}>
                     <AnimatePresence>
-                        <ThemeProvider theme={light}>
+                        <ThemeProvider theme={themeMode}>
                             <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
                             <Analytics />
                             <GlobalStyle />
