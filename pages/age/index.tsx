@@ -1,6 +1,8 @@
 import { incrementQuestionNumber } from '@/services/globalStateSlice';
 import { useAppDispatch } from '@/services/hook';
-import { AgreeButtonContainer, DisagreeButtonContainer, OptionsContainer, StyledEmoji, StyledSection } from '@/styles/styled';
+import { AgreeContainer, DisagreeContainer } from '@/styles/buttons';
+import { StyledSection } from '@/styles/core';
+import { OptionsContainer, StyledEmoji } from '@/styles/styled';
 import { useRouter } from 'next/router';
 import React from 'react';
 import ym from 'react-yandex-metrika';
@@ -27,14 +29,14 @@ const Age = () => {
         <StyledSection>
             <h1>Are you 18 or older?</h1>
             <OptionsContainer>
-                <AgreeButtonContainer onClick={() => handleClick(true)}>
+                <AgreeContainer onClick={() => handleClick(true)}>
                     <p>Yes</p>
                     <StyledEmoji>✅</StyledEmoji>
-                </AgreeButtonContainer>
-                <DisagreeButtonContainer style={{width: 'auto', height: 'auto'}} as='a' href={teenPopsURL} onClick={() => handleClick(false)}>
+                </AgreeContainer>
+                <DisagreeContainer style={{width: 'auto', height: 'auto'}} as='a' href={teenPopsURL} onClick={() => handleClick(false)}>
                     <p>No</p>
                     <StyledEmoji>❌</StyledEmoji>
-                </DisagreeButtonContainer>
+                </DisagreeContainer>
             </OptionsContainer>
         </StyledSection>
     );

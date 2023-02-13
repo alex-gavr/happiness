@@ -9,7 +9,7 @@ const StyledProgressBar = styled(m.div)({
     left: 0,
     right: 0,
     height: '5px',
-    background: 'red',
+    background: '#990011ff',
     transformOrigin: '0%',
 });
 

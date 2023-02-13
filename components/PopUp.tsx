@@ -1,4 +1,4 @@
-import { FlexCCC } from '@/styles/styled';
+import { FlexCCC } from '@/styles/core';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -14,20 +14,10 @@ const StyledPopUp = styled(FlexCCC)( props => ({
 }))
 
 const PopUp = () => {
-    const [seconds, setSeconds] = useState(59);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            // update the state after 1000ms
-            setSeconds((currentCount) => currentCount - 1);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, [seconds, setSeconds]);
 
     return (
         <StyledPopUp>
             <p style={{ textAlign: 'center' }}>Complete the survey and get free tokens from our partners</p>
-            <p style={{ textAlign: 'center', fontSize: '0.8rem' }}>valid for 4 minutes and {seconds} seconds</p>
         </StyledPopUp>
     );
 };

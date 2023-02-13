@@ -1,6 +1,5 @@
-import { useAppSelector } from '@/services/hook';
-import { FinishButton, StyledSection } from '@/styles/styled';
-import React from 'react';
+import { FlexCCC, StyledSection } from '@/styles/core';
+import { FinishButton } from '@/styles/buttons';
 import ym from 'react-yandex-metrika';
 
 const ThankYou = () => {
@@ -34,10 +33,12 @@ const ThankYou = () => {
     };
     return (
         <StyledSection>
-            <h1>You are talented poker player !</h1>
-            <p style={{ textAlign: 'center' }}>Use your knowledge to earn extra money 👇</p>
+            <FlexCCC gap='1rem'>
+                <h1>How do you feel?</h1>
+                <p style={{ textAlign: 'center', fontSize: 'clamp(0.9rem, 0.8250rem + 0.4000vw, 1.2rem)', width: '90%' }}>Hopefully your day is a little better now 😁</p>
+            </FlexCCC>
             <FinishButton href={mainPopsURL} onClick={handleMainExit}>
-                Check it out
+                Finish
             </FinishButton>
         </StyledSection>
     );

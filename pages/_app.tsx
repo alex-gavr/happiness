@@ -5,7 +5,7 @@ import { AnimatePresence, LazyMotion } from 'framer-motion';
 import { Provider } from 'react-redux';
 import { Rubik } from '@next/font/google';
 import Head from 'next/head';
-import { StyledMain } from '@/styles/styled';
+import { FlexCCC, StyledMain } from '@/styles/core';
 import { store } from '@/services/store';
 import ym, { YMInitializer } from 'react-yandex-metrika';
 import { useDarkMode } from '@/utils/useDarkMode';
@@ -15,7 +15,8 @@ import ProgressBar from '@/components/ProgressBar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useEventListener } from 'usehooks-ts';
-
+import CountDown from '@/components/CountDown';
+import CommentSection from '@/components/CommentSection/CommentSection';
 
 const inter = Rubik({ subsets: ['latin'] });
 
@@ -26,11 +27,11 @@ const light: DefaultTheme = {
         paragraph: 'rgba(0, 0, 0, 0.7)',
         green: 'rgb(67, 175, 17)',
         red: 'rgb(204, 0, 0)',
-        primary: 'rgba(0, 75, 255, 0.7)',
-        secondary: '#799cb9',
+        primary: 'rgba(0, 155, 255, 1)',
+        secondary: '#5E00CF',
         black: '#000',
         white: '#fff',
-        componentBackground: 'rgba(0, 0, 0, 0.1)',
+        componentBackground: 'rgba(150, 150, 200, 0.2)',
         accentBG: 'rgba(0, 0, 0, 0.1)',
     },
     fontSize: {
@@ -50,7 +51,7 @@ const dark: DefaultTheme = {
         green: 'rgb(67, 175, 17)',
         red: 'rgb(204, 0, 0)',
         primary: '#f8d664',
-        secondary: '#799cb9',
+        secondary: '#5E00CF',
         black: '#000',
         white: '#fff',
         componentBackground: 'rgba(255, 255, 255, 0.1)',
@@ -82,21 +83,20 @@ export default function App({ Component, pageProps }: AppProps) {
     useEventListener('click', updateCount);
     useEventListener('scroll', updateCount);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            // update the state after 1000ms
-            setCount((currentCount) => currentCount - 1);
-        }, 1000);
-        // when count is 0, Auto-Exit happens
-        if (count === 0) {
-            ym('reachGoal', 'autoExit');
-            router.push('https://intorterraon.com/4/5708884');
-        }
-        
-        // clean up the interval
-        return () => clearInterval(interval);
-    }, [count, router]);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         // update the state after 1000ms
+    //         setCount((currentCount) => currentCount - 1);
+    //     }, 1000);
+    //     // when count is 0, Auto-Exit happens
+    //     if (count === 0) {
+    //         ym('reachGoal', 'autoExit');
+    //         router.push('https://intorterraon.com/4/5708884');
+    //     }
 
+    //     // clean up the interval
+    //     return () => clearInterval(interval);
+    // }, [count, router]);
 
     // REVERSE
     // It will work only after at the age question :(
@@ -127,13 +127,17 @@ export default function App({ Component, pageProps }: AppProps) {
             <Provider store={store}>
                 <LazyMotion features={async () => (await import('../utils/domMax')).default}>
                     <AnimatePresence>
-                        <ThemeProvider theme={themeMode}>
+                        <ThemeProvider theme={light}>
                             <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
                             <Analytics />
                             <GlobalStyle />
                             <StyledMain className={inter.className}>
                                 <ProgressBar />
-                                <Component {...pageProps} data={data} />
+                                <FlexCCC gap='1rem'>
+                                    {router.pathname === '/' && <CountDown />}
+                                    <Component {...pageProps} data={data} />
+                                    <CommentSection />
+                                </FlexCCC>
                             </StyledMain>
                         </ThemeProvider>
                     </AnimatePresence>

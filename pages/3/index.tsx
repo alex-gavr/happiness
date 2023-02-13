@@ -1,5 +1,5 @@
 import Quiz from '@/components/Quiz';
-import { StyledSection } from '@/styles/styled'
+import { StyledSection } from '@/styles/core'
 
 export default function Question3() {
     
