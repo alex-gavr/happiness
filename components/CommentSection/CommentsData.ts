@@ -57,18 +57,18 @@ export const comments: Array<ICommentsData> = [
     },
     {
         id: 3,
-        name: "Sophia Johnson",
-        img: "/woman3.webp",
-        comment: "The questions are really unique and unexpected. I had much fun answering them!",
+        name: "Martina Rodriguez",
+        img: "/woman4.webp",
+        comment: "This survey definitely boosts the mood. Give it 1 minute of your life, and you won't regret it.",
         time: "12 hours ago",
         emojis: [
             {
                 emoji: '👍',
-                count: 8,
+                count: 4,
             },
             {
                 emoji: '😁',
-                count: 1,
+                count: 2,
             },
             {
                 emoji: '👎',
@@ -99,18 +99,18 @@ export const comments: Array<ICommentsData> = [
     },
     {
         id: 5,
-        name: "Martina Rodriguez",
-        img: "/woman4.webp",
-        comment: "This survey definitely boosts the mood. Give it 1 minute of your life, and you won't regret it.",
+        name: "Sophia Johnson",
+        img: "/woman3.webp",
+        comment: "The questions are really unique and unexpected. I had much fun answering them!",
         time: "12 hours ago",
         emojis: [
             {
                 emoji: '👍',
-                count: 4,
+                count: 8,
             },
             {
                 emoji: '😁',
-                count: 2,
+                count: 1,
             },
             {
                 emoji: '👎',
