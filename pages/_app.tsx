@@ -1,24 +1,14 @@
-import { DefaultTheme, ThemeProvider } from 'styled-components';
-import GlobalStyle from '@/styles/globals';
+import { DefaultTheme } from 'styled-components';
 import type { AppProps } from 'next/app';
-import { AnimatePresence, LazyMotion } from 'framer-motion';
-import { Provider } from 'react-redux';
-import { Rubik } from '@next/font/google';
 import Head from 'next/head';
-import { FlexCCC, StyledMain } from '@/styles/core';
-import { store } from '@/services/store';
-import ym, { YMInitializer } from 'react-yandex-metrika';
+import ym from 'react-yandex-metrika';
 import { useDarkMode } from '@/utils/useDarkMode';
-import { Analytics } from '@vercel/analytics/react';
 import { data } from '@/components/Data';
-import ProgressBar from '@/components/ProgressBar';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useEventListener } from 'usehooks-ts';
-import CountDown from '@/components/CountDown';
-import CommentSection from '@/components/CommentSection/CommentSection';
-
-const inter = Rubik({ subsets: ['latin'] });
+import Providers from '@/components/Providers';
+import Layout from '@/components/Layout';
 
 const light: DefaultTheme = {
     colors: {
@@ -124,25 +114,11 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <Provider store={store}>
-                <LazyMotion features={async () => (await import('../utils/domMax')).default}>
-                    <AnimatePresence>
-                        <ThemeProvider theme={themeMode}>
-                            <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
-                            <Analytics />
-                            <GlobalStyle />
-                            <StyledMain className={inter.className}>
-                                <ProgressBar />
-                                <FlexCCC gap='1rem'>
-                                    {router.pathname === '/' && <CountDown />}
-                                    <Component {...pageProps} data={data} />
-                                    <CommentSection />
-                                </FlexCCC>
-                            </StyledMain>
-                        </ThemeProvider>
-                    </AnimatePresence>
-                </LazyMotion>
-            </Provider>
+            <Providers themeMode={themeMode}>
+                <Layout router={router}>
+                    <Component {...pageProps} data={data} />
+                </Layout>
+            </Providers>
         </>
     );
 }
