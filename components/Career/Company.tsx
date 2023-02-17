@@ -1,6 +1,7 @@
 import { FlexCCC, FlexRCC } from '@/styles/core';
 import { companiesData } from './CompaniesData';
 import styled from 'styled-components';
+import { useMemo } from 'react';
 
 const CardContainer = styled(FlexCCC)((props) => ({
     gap: '1rem',
@@ -35,7 +36,9 @@ const SalaryContainer = styled(FlexRCC)((props) => ({
 }));
 
 const Company = () => {
-    const randomInt = Math.floor(Math.random() * 12) + 1;
+    const randomInt = useMemo(() => {
+        return Math.floor(Math.random() * 12) + 1;
+    }, []);
     const filteredArray = companiesData.filter((i) => i.id === randomInt);
 
     return (

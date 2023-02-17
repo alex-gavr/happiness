@@ -30,4 +30,5 @@ const CommentSection = () => {
     );
 };
 
-export default CommentSection;
+const MemoizedCommentSection = React.memo(CommentSection);
+export default MemoizedCommentSection;
