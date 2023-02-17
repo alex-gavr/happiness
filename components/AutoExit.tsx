@@ -30,7 +30,7 @@ const AutoExit = () => {
         return () => clearInterval(interval);
     }, [count, router]);
 
-    return <div style={{display: 'none'}}></div>;
+    return <div style={{ display: 'none' }} />;
 };
 
 export default AutoExit;
