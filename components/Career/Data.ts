@@ -157,14 +157,6 @@ export const CareerData: Array<IData> = [
                 exit: null,
             },
             {
-                answer: 'Critical thinking',
-                img: '',
-                emoji: '🤔',
-                to: '/5',
-                ym: 'skills/Thinking',
-                exit: null,
-            },
-            {
                 answer: 'Flexibility',
                 img: '',
                 emoji: '🤗',
