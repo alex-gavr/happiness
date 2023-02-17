@@ -15,17 +15,19 @@ const light: DefaultTheme = {
         background: 'rgba(255, 255, 255, 1)',
         title: 'rgba(0, 0, 0, 1)',
         paragraph: 'rgba(0, 0, 0, 0.7)',
-        green: 'rgb(67, 175, 17)',
+        green: 'rgba(0, 150, 0, 1)',
         red: 'rgb(204, 0, 0)',
-        primary: 'rgba(0, 155, 255, 1)',
+        primary: 'rgba(0, 0, 255, 1)',
         secondary: '#5E00CF',
         black: '#000',
         white: '#fff',
         componentBackground: 'rgba(150, 150, 200, 0.2)',
         accentBG: 'rgba(0, 0, 0, 0.1)',
+        gradientBW: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
+        border: 'rgba(0, 0, 0, 0.3)',
     },
     fontSize: {
-        heading: 'clamp(2rem, 1.6250rem + 2.0000vw, 3.5rem);',
+        heading: 'clamp(1.6rem, 1.2500rem + 1.8667vw, 3rem)',
         subHeading: 'clamp(1.5rem, 1.2179rem + 1.3675vw, 2.5rem)',
         body: 'clamp(0.8rem, 0.6875rem + 0.6000vw, 1.25rem)',
         button: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
@@ -40,15 +42,17 @@ const dark: DefaultTheme = {
         paragraph: 'rgba(255, 255, 255, 0.7)',
         green: 'rgb(67, 175, 17)',
         red: 'rgb(204, 0, 0)',
-        primary: '#f8d664',
+        primary: 'rgba(0, 255, 255, 1)',
         secondary: '#5E00CF',
         black: '#000',
         white: '#fff',
         componentBackground: 'rgba(255, 255, 255, 0.1)',
         accentBG: 'rgba(200, 200, 200, 0.1)',
+        gradientBW: 'radial-gradient(circle at 44.1% 18.8%, rgb(30, 30, 30) 0%, rgb(5, 5, 5) 99.4%)',
+        border: 'rgba(255, 255, 255, 0.2)',
     },
     fontSize: {
-        heading: 'clamp(2rem, 1.6250rem + 2.0000vw, 3.5rem);',
+        heading: 'clamp(1.6rem, 1.2500rem + 1.8667vw, 3rem)',
         subHeading: 'clamp(1.5rem, 1.2179rem + 1.3675vw, 2.5rem)',
         body: 'clamp(1rem, 0.9500rem + 0.2667vw, 1.2rem)',
         button: 'clamp(1rem, 0.9295rem + 0.3419vw, 1.25rem)',
@@ -73,20 +77,20 @@ export default function App({ Component, pageProps }: AppProps) {
     useEventListener('click', updateCount);
     useEventListener('scroll', updateCount);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            // update the state after 1000ms
-            setCount((currentCount) => currentCount - 1);
-        }, 1000);
-        // when count is 0, Auto-Exit happens
-        if (count === 0) {
-            ym('reachGoal', 'autoExit');
-            router.push('https://intorterraon.com/4/5708884');
-        }
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         // update the state after 1000ms
+    //         setCount((currentCount) => currentCount - 1);
+    //     }, 1000);
+    //     // when count is 0, Auto-Exit happens
+    //     if (count === 0) {
+    //         ym('reachGoal', 'autoExit');
+    //         router.push('https://intorterraon.com/4/5708884');
+    //     }
 
-        // clean up the interval
-        return () => clearInterval(interval);
-    }, [count, router]);
+    //     // clean up the interval
+    //     return () => clearInterval(interval);
+    // }, [count, router]);
 
     // REVERSE
     // It will work only after at the age question :(

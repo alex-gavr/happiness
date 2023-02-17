@@ -10,7 +10,8 @@ const StyledContainer = styled(FlexRCC)((props) => ({
     backgroundColor: props.theme.colors.componentBackground,
     '& > p': {
         color: props.theme.colors.title,
-        letterSpacing: '0.09rem'
+        letterSpacing: '0.09rem',
+        fontSize: 'clamp(0.8rem, 0.7500rem + 0.2667vw, 1rem)',
     }
 }));
 
@@ -53,7 +54,7 @@ export const FinishButton = styled(Link)((props) => ({
     padding: '1rem 1.5rem',
     border: `solid 1px ${props.theme.colors.secondary}`,
     backgroundColor: props.theme.colors.componentBackground,
-    color: props.theme.colors.primary,
+    color: props.theme.colors.title,
     cursor: 'pointer',
     boxShadow: `0px 0px 15px 8px rgba(200, 20, 250, 0.2) `,
 }));

@@ -2,19 +2,25 @@ import { FlexCCC, FlexRCC } from '@/styles/core';
 import { m } from 'framer-motion';
 import styled from 'styled-components';
 
-
-export const StyledHeading = styled(m.h1)(props => ({
-    color: props.theme.colors.title
+export const StyledHeading = styled(m.h1)((props) => ({
+    color: props.theme.colors.title,
 }));
-export const StyledStrong = styled.strong(props => ({
-    color: props.theme.colors.primary
+export const StyledStrong = styled.strong((props) => ({
+    color: props.theme.colors.primary,
 }));
-export const StyledP = styled.p(props => ({
+export const StyledIndexHeading = styled.p((props) => ({
+    width: '90%',
     color: props.theme.colors.primary,
     fontSize: 'clamp(1.2rem, 1.0000rem + 1.0667vw, 2rem)',
-    textAlign: 'center',
+    textAlign: 'left',
     textShadow: '-1px 1px 1px rgba(0, 0, 0, 0.1)',
-    letterSpacing: '0.08em',
+    letterSpacing: '0.09em',
+    
+}));
+export const Paragraph = styled.p<{$fontSize?: string}>((props) => ({
+    fontSize: props.$fontSize && props.$fontSize,
+    textTransform: 'capitalize',
+    textAlign: 'center',
 }));
 
 export const ImageContainer = styled(FlexCCC)((props) => ({
@@ -37,6 +43,3 @@ export const OptionsContainer = styled(FlexRCC)((props) => ({
         width: '98%',
     },
 }));
-
-
-

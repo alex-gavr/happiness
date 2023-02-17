@@ -36,7 +36,7 @@ const CommentAndEmoji = styled(FlexCCC)({
 });
 const ImageContainer = styled(FlexCCC)({
     width: '100%',
-    height: 80,
+    height: 100,
     borderRadius: '2rem',
     overflow: 'hidden',
     placeSelf: 'flex-start',

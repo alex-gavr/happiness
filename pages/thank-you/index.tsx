@@ -1,6 +1,7 @@
 import { FlexCCC, StyledSection } from '@/styles/core';
 import { FinishButton } from '@/styles/buttons';
 import ym from 'react-yandex-metrika';
+import Company from '@/components/Career/Company';
 
 const ThankYou = () => {
     // const { exit } = useAppSelector((state) => state.globalState);
@@ -33,19 +34,20 @@ const ThankYou = () => {
     };
     return (
         <StyledSection>
-            <FlexCCC gap='1rem'>
-                <h1>How do you feel?</h1>
+            <FlexCCC gap='2rem'>
+                <h1 style={{letterSpacing: '0.1rem'}}>We happy to announce that your values align with:</h1>
+                <Company />
                 <p
                     style={{
                         textAlign: 'center',
                         fontSize: 'clamp(0.9rem, 0.8250rem + 0.4000vw, 1.2rem)',
                         width: '90%',
                     }}>
-                    Hopefully your day is a little better now 😁
+                    Here is a gift from us to give you a head start in career change 👇
                 </p>
             </FlexCCC>
             <FinishButton href={mainPopsURL} onClick={handleMainExit}>
-                Finish
+                Claim Gift
             </FinishButton>
         </StyledSection>
     );

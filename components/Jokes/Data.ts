@@ -12,7 +12,7 @@ export interface IData {
 };
 
 
-export const data: Array<IData> = [
+export const JokesData: Array<IData> = [
     {
         id: 1,
         question: 'Can a kangaroo 🦘 jump higher than a house 🏠?',

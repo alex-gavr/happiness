@@ -16,13 +16,12 @@ export const StyledMain = styled.main({
 });
 
 export const StyledSection = styled.section((props) => ({
-    minHeight: '80vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     gap: '2rem',
-    flex: '1 1 0',
+    minHeight: '80vh',
     maxWidth: '1000px',
 }));
 export const FlexCCC = styled(m.div)<{ gap?: string }>((props) => ({
