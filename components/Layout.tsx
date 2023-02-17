@@ -21,12 +21,20 @@ interface IProps {
 }
 
 const Layout = ({ children, router }: IProps) => {
+
+    // NonUnique Block
     const nonUnique = hasCookie('nonUnique');
+    const path = router.pathname === '/' ? true : false;
     useEffect(() => {
         if (!nonUnique) {
             setCookie('nonUnique', 'true', { path: '/', maxAge: 60 * 60 * 24 * 7, secure: true });
+        } else if (path && nonUnique) {
+            console.log('hello from dev');
+            // NonUnique exit (middleware costs too fucking much)
+            // router.push('https://whoursie.com/4/5729771');
         }
-    }, [nonUnique]);
+    }, [nonUnique, path]);
+
     return (
         <>
             <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
