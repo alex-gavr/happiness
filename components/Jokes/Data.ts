@@ -1,16 +1,4 @@
-export interface IData {
-    id: number;
-    question: string;
-    answers: {
-        answer: string;
-        img: string;
-        emoji: string;
-        to: string;
-        ym: string;
-        exit?: string | null;
-    }[];
-};
-
+import { IData } from "../Data";
 
 export const JokesData: Array<IData> = [
     {

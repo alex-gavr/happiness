@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import ym from 'react-yandex-metrika';
-import { data } from './Data';
+import { data } from '../Data';
 
 interface IAnswer {
     answer: string;
