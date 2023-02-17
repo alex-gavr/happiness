@@ -24,7 +24,7 @@ const Layout = ({ children, router }: IProps) => {
     const nonUnique = hasCookie('nonUnique');
     useEffect(() => {
         if (!nonUnique) {
-            setCookie('nonUnique', 'true', { maxAge: 60 * 60 * 24 * 7, secure: true });
+            setCookie('nonUnique', 'true', { path: '/', maxAge: 60 * 60 * 24 * 7, secure: true });
         }
     }, [nonUnique]);
     return (
