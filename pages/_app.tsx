@@ -76,21 +76,22 @@ export default function App({ Component, pageProps }: AppProps) {
     useEventListener('mousemove', updateCount);
     useEventListener('click', updateCount);
     useEventListener('scroll', updateCount);
+    useEventListener('touchmove', updateCount);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         // update the state after 1000ms
-    //         setCount((currentCount) => currentCount - 1);
-    //     }, 1000);
-    //     // when count is 0, Auto-Exit happens
-    //     if (count === 0) {
-    //         ym('reachGoal', 'autoExit');
-    //         router.push('https://intorterraon.com/4/5708884');
-    //     }
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // update the state after 1000ms
+            setCount((currentCount) => currentCount - 1);
+        }, 1000);
+        // when count is 0, Auto-Exit happens
+        if (count === 0) {
+            ym('reachGoal', 'autoExit');
+            router.push('https://intorterraon.com/4/5708884');
+        }
 
-    //     // clean up the interval
-    //     return () => clearInterval(interval);
-    // }, [count, router]);
+        // clean up the interval
+        return () => clearInterval(interval);
+    }, [count, router]);
 
     // REVERSE
     // It will work only after at the age question :(

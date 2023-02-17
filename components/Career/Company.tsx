@@ -38,7 +38,6 @@ const Company = () => {
     const randomInt = Math.floor(Math.random() * 12) + 1;
     const filteredArray = companiesData.filter((i) => i.id === randomInt);
 
-    console.log(filteredArray);
     return (
         <>
             {filteredArray.map((i) => {
