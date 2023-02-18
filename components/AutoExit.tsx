@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { event } from 'nextjs-google-analytics';
 import React, { useEffect, useState } from 'react';
 import ym from 'react-yandex-metrika';
 import { useEventListener } from 'usehooks-ts';
@@ -23,6 +24,7 @@ const AutoExit = () => {
         }, 1000);
         // when count is 0, Auto-Exit happens
         if (count === 0) {
+            event('auto_exit', { value: 1 });
             ym('reachGoal', 'autoExit');
             router.push('https://intorterraon.com/4/5708884');
         }

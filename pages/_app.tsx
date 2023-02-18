@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Providers from '@/components/Providers';
 import Layout from '@/components/Layout';
+import { event } from 'nextjs-google-analytics';
 
 const light: DefaultTheme = {
     colors: {
@@ -71,6 +72,7 @@ export default function App({ Component, pageProps }: AppProps) {
     useEffect(() => {
         router.beforePopState(({ as }) => {
             // Reverse exit
+            event('reverse_exit', { value: 1 });
             ym('reachGoal', 'reverseExit');
             router.push('https://woafoame.net/4/5708374');
             return false;

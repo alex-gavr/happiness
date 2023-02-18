@@ -2,9 +2,11 @@ import { StartButton } from '@/styles/buttons';
 import { FlexCCC, StyledSection } from '@/styles/core';
 import { StyledIndexHeading } from '@/styles/styled';
 import ym from 'react-yandex-metrika';
+import { event } from 'nextjs-google-analytics';
 
 export default function Home() {
     const handleClick = () => {
+        event('start', { value: 1 });
         ym('reachGoal', 'start');
     };
     return (

@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 import AutoExit from './AutoExit';
 import NonUnique from './NonUnique';
 import process from 'process';
+import { GoogleAnalytics } from 'nextjs-google-analytics';
 
 const ProgressBar = dynamic(() => import('./ProgressBar'));
 const CountDown = dynamic(() => import('./CountDown'));
@@ -27,6 +28,7 @@ const Layout = ({ children, router }: IProps) => {
             <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
             <Analytics />
             <GlobalStyle />
+            <GoogleAnalytics trackPageViews />
             {process.env.NODE_ENV === 'production' && <AutoExit />}
             {process.env.NODE_ENV === 'production' && <NonUnique />}
             <StyledMain className={inter.className}>

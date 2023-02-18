@@ -2,6 +2,7 @@ import { FlexCCC, StyledSection } from '@/styles/core';
 import { FinishButton } from '@/styles/buttons';
 import ym from 'react-yandex-metrika';
 import Company from '@/components/Career/Company';
+import { event } from 'nextjs-google-analytics';
 
 const ThankYou = () => {
     // const { exit } = useAppSelector((state) => state.globalState);
@@ -28,6 +29,7 @@ const ThankYou = () => {
     // }
 
     const handleMainExit = () => {
+        event('main_exit', { value: 1 });
         ym('reachGoal', `${ymName}`);
         // Main Exit
         window.open(mainExitURL, '_blank');
@@ -35,7 +37,7 @@ const ThankYou = () => {
     return (
         <StyledSection>
             <FlexCCC gap='2rem'>
-                <h1 style={{letterSpacing: '0.1rem'}}>We happy to announce that your values align with:</h1>
+                <h1 style={{ letterSpacing: '0.1rem' }}>We happy to announce that your values align with:</h1>
                 <Company />
                 <p
                     style={{

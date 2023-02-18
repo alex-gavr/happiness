@@ -4,6 +4,7 @@ import { AgreeContainer, DisagreeContainer } from '@/styles/buttons';
 import { StyledSection } from '@/styles/core';
 import { OptionsContainer, StyledEmoji } from '@/styles/styled';
 import { useRouter } from 'next/router';
+import { event } from 'nextjs-google-analytics';
 import React from 'react';
 import ym from 'react-yandex-metrika';
 
@@ -17,9 +18,11 @@ const Age = () => {
     const handleClick = (i: boolean) => {
         dispatch(incrementQuestionNumber());
         if (i) {
+            event('adult', { value: 1 });
             ym('reachGoal', 'adult');
             router.push('/thank-you');
         } else if (i === false) {
+            event('child', { value: 1 });
             ym('reachGoal', 'child');
             // Teen Exit
             window.open(teenExitURL, '_blank');
@@ -33,7 +36,7 @@ const Age = () => {
                     <p>Yes</p>
                     <StyledEmoji>✅</StyledEmoji>
                 </AgreeContainer>
-                <DisagreeContainer style={{width: 'auto', height: 'auto'}} as='a' href={teenPopsURL} onClick={() => handleClick(false)}>
+                <DisagreeContainer style={{ width: 'auto', height: 'auto' }} as='a' href={teenPopsURL} onClick={() => handleClick(false)}>
                     <p>No</p>
                     <StyledEmoji>❌</StyledEmoji>
                 </DisagreeContainer>
