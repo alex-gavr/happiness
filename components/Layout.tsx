@@ -28,7 +28,7 @@ const Layout = ({ children, router }: IProps) => {
             <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
             <Analytics />
             <GlobalStyle />
-            <GoogleAnalytics trackPageViews />
+            <GoogleAnalytics trackPageViews defaultConsent='granted' />
             {process.env.NODE_ENV === 'production' && <AutoExit />}
             {process.env.NODE_ENV === 'production' && <NonUnique />}
             <StyledMain className={inter.className}>
