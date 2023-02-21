@@ -48,6 +48,8 @@ export const FinishButton = styled(Link)((props) => ({
     alignItems: 'center',
     justifyContent: 'center',
     letterSpacing: '0.09rem',
+    fontSize: 'clamp(0.8rem, 0.7500rem + 0.2667vw, 1rem)',
+    textTransform: 'uppercase',
     width: 250,
     height: 'auto',
     borderRadius: '1rem',

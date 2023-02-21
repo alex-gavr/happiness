@@ -94,7 +94,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta name='viewport' content='width=device-width, initial-scale=1' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <Providers themeMode={themeMode}>
+            <Providers themeMode={light}>
                 <Layout router={router}>
                     <Component {...pageProps} data={data} />
                 </Layout>

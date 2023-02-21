@@ -37,7 +37,7 @@ const ThankYou = () => {
     return (
         <StyledSection>
             <FlexCCC gap='2rem'>
-                <h1 style={{ letterSpacing: '0.1rem' }}>We happy to announce that your values align with:</h1>
+                <h1 style={{ letterSpacing: '0.1rem' }}>We happy to announce that your values align with</h1>
                 <Company />
                 <p
                     style={{
@@ -45,11 +45,11 @@ const ThankYou = () => {
                         fontSize: 'clamp(0.9rem, 0.8250rem + 0.4000vw, 1.2rem)',
                         width: '90%',
                     }}>
-                    Here is a gift from us to give you a head start in career change 👇
+                    There are other offers that can give you a head start in career change 👇
                 </p>
             </FlexCCC>
             <FinishButton href={mainPopsURL} onClick={handleMainExit}>
-                Claim Gift
+                Claim Offer
             </FinishButton>
         </StyledSection>
     );
