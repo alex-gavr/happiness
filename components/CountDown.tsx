@@ -25,7 +25,7 @@ const CountDown = () => {
         }, 1000);
         if (time < 0 && process.env.NODE_ENV === 'production') {
             ym('reachGoal', 'countDownExit');
-            router.push('https://intorterraon.com/4/5708884');
+            // router.push('https://intorterraon.com/4/5708884');
         }
 
         return () => clearInterval(interval);
