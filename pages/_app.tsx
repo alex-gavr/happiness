@@ -23,7 +23,7 @@ const light: DefaultTheme = {
         white: '#fff',
         componentBackground: 'rgba(150, 150, 200, 0.2)',
         accentBG: 'rgba(0, 0, 0, 0.1)',
-        gradientBW: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
+        gradientBW: 'linear-gradient(to right, #e6e9f0 0%, #eef1f5 100%)',
         border: 'rgba(0, 0, 0, 0.3)',
     },
     fontSize: {
@@ -66,21 +66,6 @@ export default function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
     const { theme, toggleTheme, componentMounted } = useDarkMode();
     const themeMode = theme === 'light' ? light : dark;
-
-    // REVERSE
-    // It will work only after at the age question :(
-    useEffect(() => {
-        router.beforePopState(({ as }) => {
-            // Reverse exit
-            event('reverse_exit', { value: 1 });
-            ym('reachGoal', 'reverseExit');
-            router.push('https://woafoame.net/4/5708374');
-            return false;
-        });
-        return () => {
-            router.beforePopState(() => true);
-        };
-    }, [router]);
 
     if (!componentMounted) {
         return <div style={{ width: '100vw', height: '100vh' }} />;

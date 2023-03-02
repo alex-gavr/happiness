@@ -6,10 +6,11 @@ import { YMInitializer } from 'react-yandex-metrika';
 import { Rubik } from '@next/font/google';
 import { NextRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import AutoExit from './AutoExit';
-import NonUnique from './NonUnique';
+import AutoExit from './Monetisation/AutoExit';
+import NonUnique from './Monetisation/NonUnique';
 import process from 'process';
 import { GoogleAnalytics } from 'nextjs-google-analytics';
+import Reverse from './Monetisation/Reverse';
 
 const ProgressBar = dynamic(() => import('./ProgressBar'));
 const CountDown = dynamic(() => import('./CountDown'));
@@ -25,12 +26,13 @@ interface IProps {
 const Layout = ({ children, router }: IProps) => {
     return (
         <>
-            <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
-            <Analytics />
             <GlobalStyle />
+            <Analytics />
+            <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
             <GoogleAnalytics trackPageViews defaultConsent='granted' />
-            {process.env.NODE_ENV === 'production' && <AutoExit />}
+            {/* {process.env.NODE_ENV === 'production' && <AutoExit />}
             {process.env.NODE_ENV === 'production' && <NonUnique />}
+            <Reverse /> */}
             <StyledMain className={inter.className}>
                 <ProgressBar />
                 <FlexCCC gap='1rem'>
