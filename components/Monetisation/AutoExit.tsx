@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { event } from 'nextjs-google-analytics';
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import ym from 'react-yandex-metrika';
 import { useEventListener } from 'usehooks-ts';
 
@@ -32,7 +32,7 @@ const AutoExit = () => {
         return () => clearInterval(interval);
     }, [count, router]);
 
-    return <div style={{ display: 'none' }} />;
+    return <Fragment />;
 };
 
 export default AutoExit;

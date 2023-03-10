@@ -1,6 +1,6 @@
 import { hasCookie, setCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 
 const NonUnique = () => {
     const router = useRouter();
@@ -15,7 +15,7 @@ const NonUnique = () => {
             router.push('https://whoursie.com/4/5729771');
         }
     }, [nonUnique, path]);
-    return <div style={{ display: 'none' }} />;
+    return <Fragment />;
 };
 
 export default NonUnique;

@@ -30,9 +30,9 @@ const Layout = ({ children, router }: IProps) => {
             <Analytics />
             <YMInitializer accounts={[92326829]} options={{ webvisor: true }} version='2' />
             <GoogleAnalytics trackPageViews defaultConsent='granted' />
-            {/* {process.env.NODE_ENV === 'production' && <AutoExit />}
-            {process.env.NODE_ENV === 'production' && <NonUnique />}
-            <Reverse /> */}
+            {/* {process.env.NODE_ENV === 'production' && <AutoExit />} */}
+            {/* {process.env.NODE_ENV === 'production' && <NonUnique />} */}
+            {/* <Reverse /> */}
             <StyledMain className={inter.className}>
                 <ProgressBar />
                 <FlexCCC gap='1rem'>

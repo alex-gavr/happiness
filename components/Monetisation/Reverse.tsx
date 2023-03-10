@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { event } from 'nextjs-google-analytics';
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import ym from 'react-yandex-metrika';
 
 const Reverse = () => {
@@ -18,7 +18,7 @@ const Reverse = () => {
             router.beforePopState(() => true);
         };
     }, [router]);
-    return <div />;
+    return <Fragment />;
 };
 
 export default Reverse;
