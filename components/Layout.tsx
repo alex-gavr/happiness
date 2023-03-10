@@ -32,7 +32,7 @@ const Layout = ({ children, router }: IProps) => {
             <GoogleAnalytics trackPageViews defaultConsent='granted' />
             {/* {process.env.NODE_ENV === 'production' && <AutoExit />} */}
             {/* {process.env.NODE_ENV === 'production' && <NonUnique />} */}
-            {/* <Reverse /> */}
+            <Reverse />
             <StyledMain className={inter.className}>
                 <ProgressBar />
                 <FlexCCC gap='1rem'>
